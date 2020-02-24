@@ -1,0 +1,51 @@
+export const PRODUCTS =
+    [
+        {
+            id: 0,
+            name:'iPhone 11',
+            image: 'assets/images/products/iphone11.png',
+            category: 'mobile',
+            price:'50',
+            description:'Lorem ipsum',
+        },
+        {
+            id: 1,
+            name:'iPhone 11 pro',
+            image: 'assets/images/products/iphone11pro.png',
+            category: 'mobile',
+            price:'70',
+            description:'Lorem ipsum test',
+        },
+        {
+            id: 2,
+            name:'iPhone 11 pro Max',
+            image: 'assets/images/products/iphone11promax.png',
+            category: 'mobile',
+            price:'80',
+            description:'Lorem ipsum test',
+        },
+        {
+            id: 3,
+            name:'MacBook Air',
+            image: 'assets/images/products/macbookair.png',
+            category: 'laptop',
+            price:'80',
+            description:'Lorem ipsum test',
+        },
+        {
+            id: 4,
+            name:'MacBook Pro 13',
+            image: 'assets/images/products/macbookpro13.png',
+            category: 'laptop',
+            price:'100',
+            description:'Lorem ipsum test',
+        },
+        {
+            id: 5,
+            name:'MacBook Pro 16',
+            image: 'assets/images/products/macbookpro162.png',
+            category: 'laptop',
+            price:'170',
+            description:'Lorem ipsum test',
+        },
+    ];
