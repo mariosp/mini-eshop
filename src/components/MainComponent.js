@@ -24,12 +24,29 @@ const Main = () => {
         setBasket({...basket, ...newItem  });
     };
 
+    const handleItemQty = (productId, type) => {
+        let oldCount = basket[productId];
+        switch (type) {
+            case"add":
+                oldCount++;
+                break;
+            case "subtract":
+                oldCount--;
+                break;
+            default:
+        }
+        const newItem = {
+            [productId]: oldCount
+        };
+        setBasket({...basket, ...newItem} )
+    };
+
     return(
         <div>
             <Header/>
             <Products products={products} onAddToCartButton={hadleAddToCartButton}/>
             <Footer/>
-            <Basket products={products} items={basket} />
+            <Basket products={products} items={basket} onQtyChange={handleItemQty} />
         </div>
     );
 };

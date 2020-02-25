@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import {Button, Media, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {Button, Media, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
-const BasketItem = ({item,qty}) => {
+const BasketItem = ({item,qty, onQtyChange}) => {
     return (
         <Media className="container baskeitem-media mt-3">
             <Media left className="image-wrapper">
@@ -17,26 +17,29 @@ const BasketItem = ({item,qty}) => {
             </Media>
             <Media right>
                 <Media body>
-                  <Button className="mr-4"><i className="fa fa-plus-square"></i></Button>
-                  <Button><i className="fa fa-minus-square"></i></Button>
+                  <Button className="mr-4" onClick={()=> onQtyChange(item.id, "add")}><i className="fa fa-plus-square"></i></Button>
+                  <Button onClick={()=> onQtyChange(item.id, "subtract")}><i className="fa fa-minus-square"></i></Button>
                 </Media>
             </Media>
         </Media>
     )
 };
 
-const Basket = ({items, products}) => {
+const Basket = ({items, products, onQtyChange}) => {
     let basketItemsObj =[];
+    let totalPrice = 0;
     const [modal, setModal] = useState(false);
 
     const toggleModal = () => setModal(!modal);
 
     for (let [key, value] of Object.entries(items)) {
         console.log(`${key}: ${value}`);
-        basketItemsObj.push(products.find(product => product.id === Number(key)));
+        const product = products.find(product => product.id === Number(key));
+        basketItemsObj.push(product);
+        totalPrice += product.price * value;
     }
 
-    const renderBasketItems = basketItemsObj.map(item => (<BasketItem item={item} qty={items[item.id]}  key={item.id}/>));
+    const renderBasketItems = basketItemsObj.map(item => (<BasketItem item={item} qty={items[item.id]} onQtyChange={onQtyChange}  key={item.id}/>));
 
     return (
         <>
@@ -48,6 +51,14 @@ const Basket = ({items, products}) => {
                 <ModalBody>
                     { renderBasketItems }
                 </ModalBody>
+                <ModalFooter>
+                    {totalPrice>100 && <div className="discount-box container">-10% Discount</div>}
+                    <div>
+                        <p>Total: {totalPrice<=100? totalPrice : <s>{totalPrice}</s>} </p>
+                        {totalPrice>100? (<p>New Total: {totalPrice - (totalPrice/10)}</p>) : null }
+                    </div>
+                    <Button color="success">Buy <i className="fa fa-credit-card"></i></Button>
+                </ModalFooter>
             </Modal>
         </>
     );
