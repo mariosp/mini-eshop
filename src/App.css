@@ -59,10 +59,33 @@ address{
     -webkit-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.26);
     -moz-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.26);
     box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.12);
-    /*-webkit-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);*/
-    /*-moz-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);*/
-    /*box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);*/
 }
+
+.baskeitem-media{
+    height: 10vh;
+    width: 100%;
+}
+
+.image-wrapper{
+    height: 100%;
+    width: 10vh;
+    object-fit: contain;
+}
+
+.basketitem-image{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.baskeitem-header{
+    font-size: 16px;
+}
+
+.basketitem-row{
+    display: flex;
+}
+
 
 /*.App {*/
 /*  text-align: center;*/

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Products from "./ProductsComponent";
-import BasketButton from "./BasketButtonComponent";
+import Basket from "./BasketComponent";
 import { PRODUCTS } from "../shared/products"
 import { BASKET_ITEMS } from "../shared/local-storage";
 
@@ -29,7 +29,7 @@ const Main = () => {
             <Header/>
             <Products products={products} onAddToCartButton={hadleAddToCartButton}/>
             <Footer/>
-            <BasketButton items={basket}/>
+            <Basket products={products} items={basket} />
         </div>
     );
 };
