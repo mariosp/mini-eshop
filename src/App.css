@@ -45,6 +45,25 @@ address{
     width: 100%;
 }
 
+.basket-button-wrapper{
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+
+}
+
+.basket-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    -webkit-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.26);
+    box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.12);
+    /*-webkit-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);*/
+    /*-moz-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);*/
+    /*box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);*/
+}
+
 /*.App {*/
 /*  text-align: center;*/
 /*}*/

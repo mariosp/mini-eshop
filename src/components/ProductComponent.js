@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle} from "reactstrap";
 
-const Product = ({product}) => {
+const Product = ({product, onAddToCartButton}) => {
 
     return (
         <Card className="product-card">
@@ -10,7 +10,7 @@ const Product = ({product}) => {
                 <CardTitle><span >Price</span> {product.price} € </CardTitle>
                 <CardSubtitle>{product.name}</CardSubtitle>
                 <CardText>{product.description}</CardText>
-                <Button className="product-button">Add to cart <i className="fa fa-cart-plus"></i></Button>
+                <Button className="product-button" onClick={()=> onAddToCartButton(product.id)}>Add to cart <i className="fa fa-cart-plus"></i></Button>
             </CardBody>
         </Card>
     );

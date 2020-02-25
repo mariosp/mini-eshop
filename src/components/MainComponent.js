@@ -1,22 +1,35 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Products from "./ProductsComponent";
+import BasketButton from "./BasketButtonComponent";
 import { PRODUCTS } from "../shared/products"
+import { BASKET_ITEMS } from "../shared/local-storage";
 
 
 const Main = () => {
+    const initialState = () => JSON.parse(localStorage.getItem(BASKET_ITEMS)) || {};
     const [products, setProducts] = useState(PRODUCTS);
+    const [basket, setBasket] = useState(initialState);
 
-    hadleAddToCartButton() {
+    useEffect(()=>{
+        localStorage.setItem(BASKET_ITEMS, JSON.stringify(basket));
+    },[basket]);
 
-    }
+    const hadleAddToCartButton = (productId) => {
+        let oldCount = productId in basket ? basket[productId] : 0;
+        const newItem = {
+            [productId]: ++oldCount
+        };
+        setBasket({...basket, ...newItem  });
+    };
 
     return(
         <div>
             <Header/>
             <Products products={products} onAddToCartButton={hadleAddToCartButton}/>
             <Footer/>
+            <BasketButton items={basket}/>
         </div>
     );
 };
