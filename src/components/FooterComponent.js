@@ -9,8 +9,8 @@ const Footer = () => {
                     <div className="col-4 offset-1 col-sm-2">
                         <h5>Site Map</h5>
                         <ul className="list-unstyled">
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a>Products</a></li>
+                            <li><a>Contact</a></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">

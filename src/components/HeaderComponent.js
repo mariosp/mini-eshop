@@ -7,8 +7,7 @@ const Header = ()=>{
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
-            <Navbar color="light" light expand="md">
+            <Navbar light expand="md" className="header-bar">
                 <NavbarBrand href="/">Mini e-shop</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -22,7 +21,6 @@ const Header = ()=>{
                     </Nav>
                 </Collapse>
             </Navbar>
-        </div>
     )
 };
 

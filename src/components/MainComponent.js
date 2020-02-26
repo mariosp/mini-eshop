@@ -9,7 +9,7 @@ import { BASKET_ITEMS } from "../shared/local-storage";
 
 const Main = () => {
     const initialState = () => JSON.parse(localStorage.getItem(BASKET_ITEMS)) || {};
-    const [products, setProducts] = useState(PRODUCTS);
+    const [products] = useState(PRODUCTS);
     const [basket, setBasket] = useState(initialState);
 
     useEffect(()=>{
@@ -33,6 +33,12 @@ const Main = () => {
             case "subtract":
                 oldCount--;
                 break;
+            case "remove":
+                let basketObj = basket;
+                delete basketObj[productId];
+                setBasket({...basket, ...basketObj } )
+                return;
+                break;
             default:
         }
         const newItem = {
@@ -41,12 +47,16 @@ const Main = () => {
         setBasket({...basket, ...newItem} )
     };
 
+    const onSuccessBuy = ()=> {
+        setBasket({});
+    };
+
     return(
         <div>
             <Header/>
             <Products products={products} onAddToCartButton={hadleAddToCartButton}/>
             <Footer/>
-            <Basket products={products} items={basket} onQtyChange={handleItemQty} />
+            <Basket products={products} items={basket} onQtyChange={handleItemQty} onSuccessBuy={onSuccessBuy} />
         </div>
     );
 };

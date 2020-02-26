@@ -10,6 +10,15 @@
     min-height:400px;
 }
 
+.header-bar{
+    /*background-color: #c4c6e947;*/
+    background-color: #c4c6e9;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+
 .footer{
     background-color: #c4c6e947;
     margin:0px auto;
@@ -91,42 +100,9 @@ address{
     text-align: center;
 }
 
-
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
-
-/*.App-logo {*/
-/*  height: 40vmin;*/
-/*  pointer-events: none;*/
-/*}*/
-
-/*@media (prefers-reduced-motion: no-preference) {*/
-/*  .App-logo {*/
-/*    animation: App-logo-spin infinite 20s linear;*/
-/*  }*/
-/*}*/
-
-/*.App-header {*/
-/*  background-color: #282c34;*/
-/*  min-height: 100vh;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  font-size: calc(10px + 2vmin);*/
-/*  color: white;*/
-/*}*/
-
-/*.App-link {*/
-/*  color: #61dafb;*/
-/*}*/
-
-/*@keyframes App-logo-spin {*/
-/*  from {*/
-/*    transform: rotate(0deg);*/
-/*  }*/
-/*  to {*/
-/*    transform: rotate(360deg);*/
-/*  }*/
-/*}*/
+.remove-item{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
