@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import {Button, Media, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {Badge, Button, Media, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
-const BasketItem = ({item,qty, onQtyChange}) => {
+const BasketItem = ({item, qty, onQtyChange}) => {
     return (
         <>
         <Media className="container baskeitem-media mt-3">
@@ -20,7 +20,7 @@ const BasketItem = ({item,qty, onQtyChange}) => {
                 <Media body>
                   <i className="fa fa-window-close remove-item" onClick={()=> onQtyChange(item.id, "remove")}></i>
                   <Button className="mr-4" onClick={()=> onQtyChange(item.id, "add")}><i className="fa fa-plus-square"></i></Button>
-                  <Button onClick={()=> onQtyChange(item.id, "subtract")}><i className="fa fa-minus-square"></i></Button>
+                  <Button disabled={qty<=1} onClick={()=> onQtyChange(item.id, "subtract")}><i className="fa fa-minus-square"></i></Button>
                 </Media>
             </Media>
         </Media>
@@ -70,6 +70,7 @@ const Basket = ({items, products, onQtyChange,onSuccessBuy}) => {
         <>
             <div className="basket-button-wrapper">
                 <Button color="success" className="basket-button" onClick={toggleModal}><i className="fa fa-shopping-cart"></i></Button>
+                {Object.entries(items).length > 0? <Badge color="secondary" className="basket-count">{Object.entries(items).length}</Badge> : null}
             </div>
             <Modal isOpen={modal} toggle={toggleModal} scrollable={true} centered={true} className="basket-modal">
                 <ModalHeader>Your Shopping Cart</ModalHeader>

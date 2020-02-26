@@ -106,3 +106,10 @@ address{
     margin-bottom: 5px;
     font-size: 20px;
 }
+
+.basket-count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+}
